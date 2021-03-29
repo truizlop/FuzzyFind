@@ -12,7 +12,7 @@ With `bestMatch`, you can find the best alignment of your query into a single st
 import FuzzyFind 
 
 let alignment = bestMatch(query: "ff", input: "FuzzyFind") // Matches
-let noAlignment = bestMatch(query: "ww", input: FuzzyFind") // Not possible to find a match, returns nil
+let noAlignment = bestMatch(query: "ww", input: "FuzzyFind") // Not possible to find a match, returns nil
 ```
 
 With `fuzzyFind`, you can run multiple queries over multiple inputs, and get all alignments for inputs that match all provided queries. Alignments will be provided in an array and sorted by their score; a higher score means a better alignment.
