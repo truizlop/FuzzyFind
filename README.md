@@ -22,3 +22,18 @@ import FuzzyFind
 
 let allAlignments = fuzzyFind(queries: ["dad", "mac", "dam"], inputs: ["red macadamia", "Madam Card"])
 ```
+
+You can visualize the matched alignment by calling `highlight()` on an alignment:
+
+```swift
+
+let alignment = bestMatch(query: "ff", input: "FuzzyFind")!
+print(alignment.highlight())
+```
+
+This will print:
+
+```
+FuzzyFind
+*    *   
+```
