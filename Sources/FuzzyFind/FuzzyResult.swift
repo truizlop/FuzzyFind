@@ -136,3 +136,25 @@ private extension Array {
         return Array(self.dropLast())
     }
 }
+
+extension FuzzyResult {
+    /// Compute the ranges highlighed in a Swift string.
+    public func highlightedRanges(for string: String) -> [Range<String.Index>] {
+        var index = string.startIndex
+        var ranges = [Range<String.Index>]()
+
+        for segment in segments {
+            switch segment {
+            case .gap(let array):
+                index = string.index(index, offsetBy: array.count)
+            case .match(let array):
+                let start = index
+                let end = string.index(start, offsetBy: array.count)
+
+                ranges.append(start..<end)
+            }
+        }
+
+        return ranges
+    }
+}
